@@ -1,0 +1,36 @@
+.sidebar {
+    position: absolute;
+    right: 0;
+    height: 100%;
+    width: 500px;
+    background-color: rgba(255, 255, 255, 0.94);
+    top: 0;
+    transition: 0.3s ease-in;
+}
+
+/* close btn */
+.close button:hover {
+    border: 1px solid black;
+    border-radius: 50%;
+}
+
+/* on clicking the close icon the sidebar should close with following class added */
+.close_sidebar {
+    display: none;
+}
+
+
+/* nav items */
+.navItems {
+    width: 100%;
+    border-bottom: 2px solid rgb(248, 107, 85);
+    padding-bottom: 2px;
+    margin-bottom: 5px;
+}
+
+/* responsive */
+@media (max-width: 640px) {
+    .sidebar {
+        width: 350px;
+    }
+}

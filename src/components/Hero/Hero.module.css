@@ -1,0 +1,32 @@
+@import url('https://fonts.googleapis.com/css2?family=Mansalva&display=swap');
+
+.heroCont{
+    height: 90vh;
+}
+
+.donate_hero_btn {
+    border: 1px solid #4ADE80;
+}
+
+.contact_hero_btn {
+    border: 1px solid black;
+}
+
+.contact_hero_btn:hover {
+    background-color: #4ADE80;
+    border: none;
+}
+
+/* orgnization name */
+.orgName{
+    font-family: 'Mansalva', cursive !important;
+}
+
+@media (max-width: 640px) {
+    .hero {
+        flex-direction: column;
+    }
+    .herobtn {
+        margin-top: 3rem;
+    }
+}
