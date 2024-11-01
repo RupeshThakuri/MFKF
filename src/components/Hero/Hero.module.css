@@ -4,22 +4,31 @@
     height: 90vh;
 }
 
-.donate_hero_btn {
-    border: 1px solid #4ADE80;
-}
-
 .contact_hero_btn {
     border: 1px solid black;
 }
 
 .contact_hero_btn:hover {
-    background-color: #4ADE80;
     border: none;
 }
 
 /* orgnization name */
 .orgName{
     font-family: 'Mansalva', cursive !important;
+}
+
+
+/* btn colour donate and contact */
+.contained{
+    background-color: #F87171 !important;
+}
+
+.contained:hover{
+    background-color: #EF4444 !important;
+}
+
+.outlined{
+    border-color: #F87171 !important;
 }
 
 @media (max-width: 640px) {
