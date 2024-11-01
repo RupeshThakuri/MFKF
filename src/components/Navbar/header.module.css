@@ -7,7 +7,7 @@
     padding: 5px 26px;
     z-index: "999";
     background-color: transparent;
-    color: white !important;
+    color: black;
     font-size: 16px;
 }
 
@@ -23,6 +23,11 @@
     font-family: 'Mansalva', cursive !important;
 }
 
+
+/* button */
+.donate_btn{
+    color: white !important;
+}
 
 /* bars or burger menu */
 

@@ -41,7 +41,7 @@ function Header() {
   return (
     <>
       <Box
-        className={`${scroll ? "!bg-white text-black shadow-md" : "bg-transparent !text-white"} ${style.navbar} z-50 fixed top-0 left-0 w-full h-fit`}
+        className={`${scroll ? "!bg-white text-black shadow-md" : "bg-transparent text-white"} ${style.navbar} z-50 fixed top-0 left-0 w-full h-fit`}
         component="header"
       >
 
@@ -91,7 +91,7 @@ function Header() {
                   duration={500}
                   className={`${style.bar} ${scroll ? "bg-red-500 text-black" : "bg-red-400 text-white"} hover:bg-red-500 mr-2`}
                 >
-                  <Button className={`${scroll ? "text-black" : "text-white"}`}>
+                  <Button className={`!text-white ${stlye.donate_btn}`}>
                     Donate Now
                     <IoArrowForwardOutline className="ml-1" />
                   </Button>
