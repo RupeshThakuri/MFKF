@@ -23,12 +23,19 @@ export const menuItems = [
     {
         id: 4,
         title: "Leadership Program",
-        path: "/contact",
+        path: "/leadership",
         newTab: false,
         active: false,
     },
     {
-        id: 4,
+        id: 5,
+        title: "Gallery",
+        path: "/gallery",
+        newTab: false,
+        active: false,
+    },
+    {
+        id: 6,
         title: "Contact",
         path: "/contact",
         newTab: false,
