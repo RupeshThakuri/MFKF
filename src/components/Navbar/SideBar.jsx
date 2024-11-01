@@ -70,8 +70,8 @@ const SideBar = ({ openSideBar, setOpen }) => {
         </div>
         <div className='contact px-3 mt-2'>
           <ul className='flex flex-col gap-y-3'>
-            <li className='flex items-center'><IoNavigate className='text-3xl text-red-600' /><p className='ml-2'>171/5, Borhanpur Lane, 6 Hazaribagh Road, Dhaka 1211</p></li>
-            <li><Link href="gmail.com" className='flex items-center'><IoIosMail className='text-3xl text-red-600' /><p className='ml-2'>info@codestation21.com</p></Link> </li>
+            <li className='flex items-center'><IoNavigate className='text-3xl text-red-600' /><p className='ml-2'>171/5, Borhanpur Lane, ABC</p></li>
+            <li><Link href="gmail.com" className='flex items-center'><IoIosMail className='text-3xl text-red-600' /><p className='ml-2'>abc@MFKF.com</p></Link> </li>
             <li><Link href="" className='flex items-center'><FaPhoneAlt className='text-2xl text-red-600' /><p className='ml-2'>+880 1552-938771</p> </Link></li>
           </ul>
         </div>
