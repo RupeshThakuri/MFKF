@@ -43,10 +43,10 @@ const Hero = () => {
                     </p>
                 </div>
                 <div className="mt-8 flex flex-col sm:flex-row sm:space-x-4 space-y-4 sm:space-y-0">
-                    <Button variant="contained" className="py-2 px-6 bg-red-400 hover:bg-red-500">
+                    <Button variant="contained" className="py-2 px-6 bg-red-400 hover:bg-red-500 sm:bg-red-400">
                         Donate
                     </Button>
-                    <Button variant="outlined" className="py-2 px-6 text-white border-white">
+                    <Button variant="outlined" className="py-2 px-6 text-white border-white sm:text-white sm:border-red-400">
                         Contact Us
                     </Button>
                 </div>
