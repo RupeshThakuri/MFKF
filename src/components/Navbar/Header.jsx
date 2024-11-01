@@ -41,7 +41,7 @@ function Header() {
   return (
     <>
       <Box
-        className={`${scroll ? "!bg-white text-black shadow-md" : "bg-transparent text-white"} ${style.navbar} z-50 fixed top-0 left-0 w-full h-fit`}
+        className={`${scroll ? "!bg-white text-black shadow-md" : "bg-transparent !text-white"} ${style.navbar} z-50 fixed top-0 left-0 w-full h-fit`}
         component="header"
       >
 

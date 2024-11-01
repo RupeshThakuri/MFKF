@@ -29,7 +29,7 @@
 
 .outlined{
     border-color: #F87171 !important;
-    color: white;
+    color: white !important;
 }
 
 @media (max-width: 640px) {
