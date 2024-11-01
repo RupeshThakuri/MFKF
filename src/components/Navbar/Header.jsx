@@ -91,7 +91,7 @@ function Header() {
                   duration={500}
                   className={`${style.bar} ${scroll ? "bg-red-500 text-black" : "bg-red-400 text-white"} hover:bg-red-500 mr-2`}
                 >
-                  <Button className={`!text-white ${stlye.donate_btn}`}>
+                  <Button className={`!text-white ${style.donate_btn}`}>
                     Donate Now
                     <IoArrowForwardOutline className="ml-1" />
                   </Button>
