@@ -8,12 +8,25 @@ import { menuItems } from "./menuData";
 import { IoArrowForwardOutline } from "react-icons/io5";
 import Link from 'next/link';
 import { Box, Button, ButtonBase, Container, Stack } from "@mui/material";
+import { usePathname } from 'next/navigation';
 
 function Header() {
-  //changing background while scroilling to certain  section of the screen
+  //to determine the current path
+  const pathname = usePathname();
+
+  // Changing background while scrolling to a certain section of the screen
   const [scroll, setScroll] = useState(false);
 
+  // State for handling active index
+  const [activeIndex, setActiveIndex] = useState(
+    menuItems.findIndex(menu => menu.path === pathname)
+  );
+
   useEffect(() => {
+    // Update activeIndex based on the current pathname
+    const pathIndex = menuItems.findIndex(menu => menu.path === pathname);
+    setActiveIndex(pathIndex);
+
     const handleScroll = () => {
       setScroll(window.scrollY > 50);
     };
@@ -24,16 +37,12 @@ function Header() {
     return () => {
       window.removeEventListener('scroll', handleScroll);
     };
+  }, [pathname]); // Add pathname as a dependency
 
-  }, []);
-
-  //state for handeling active
-  const [activeIndex, setActiveIndex] = useState(menuItems.findIndex(menu => menu.active));
-
-  //seraching active and setting the color different
+  // Searching active and setting the color different
   const handleActive = (index) => {
-    setActiveIndex(index)
-  }
+    setActiveIndex(index);
+  };
 
   // State for sidebar
   const [openSideBar, setOpenSideBar] = useState(false);
@@ -44,7 +53,6 @@ function Header() {
         className={`${scroll ? "!bg-white text-black shadow-md" : "bg-transparent text-white"} ${style.navbar} z-50 fixed top-0 left-0 w-full h-fit`}
         component="header"
       >
-
         <Container maxWidth={false} disableGutters>
           <div className={`items-center flex flex-row justify-between px-12 ${scroll ? "text-black" : "text-white"}`}>
             <div className="nav-item hidden sm:hidden md:hidden lg:flex xl:flex">
