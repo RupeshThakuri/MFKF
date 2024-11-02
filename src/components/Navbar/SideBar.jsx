@@ -46,9 +46,6 @@ const SideBar = ({ openSideBar, setOpen }) => {
                   key={i}
                   activeClass={style.active}
                   href={item.path}
-                  spy={true}
-                  smooth={true}
-                  duration={500}
                   className={`mx-2 ${style.navItems}`}
                 >
                   <ButtonBase className='gap-x-2'>
