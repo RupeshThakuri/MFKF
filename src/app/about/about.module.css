@@ -1,0 +1,8 @@
+.about{
+    height: 60vh;
+}
+
+/* changing font of org name */
+.org_name{
+    font-family: "Mansalva", cursive !important;
+}

@@ -6,7 +6,7 @@ import style from "./header.module.css";
 import SideBar from "./SideBar";
 import { menuItems } from "./menuData";
 import { IoArrowForwardOutline } from "react-icons/io5";
-import { Link } from "react-scroll";
+import Link from 'next/link';
 import { Box, Button, ButtonBase, Container, Stack } from "@mui/material";
 
 function Header() {
@@ -52,11 +52,8 @@ function Header() {
                 {menuItems && menuItems.map((item, i) => (
                   <Link
                     key={i}
-                    to={item.path}
-                    spy={true}
+                    href={item.path}
                     onClick={() => handleActive(i)}
-                    smooth={true}
-                    duration={500}
                     className={`mx-5`}
                   >
                     <ButtonBase
@@ -70,10 +67,7 @@ function Header() {
             </div>
             <div className="logo">
               <Link
-                to="home"
-                spy={true}
-                smooth={true}
-                duration={500}
+                href="/"
                 className="flex flex-col justify-center items-center"
               >
                 <Image width={100} height={100} src="/Image/logo.png" alt="logo" />
@@ -85,10 +79,7 @@ function Header() {
             <div className="bars">
               <Stack direction="row">
                 <Link
-                  to="portfolio"
-                  spy={true}
-                  smooth={true}
-                  duration={500}
+                  href="/donate"
                   className={`${style.bar} ${scroll ? "bg-red-500 text-black" : "bg-red-400 text-white"} hover:bg-red-500 mr-2`}
                 >
                   <Button className={`!text-white ${style.donate_btn}`}>
