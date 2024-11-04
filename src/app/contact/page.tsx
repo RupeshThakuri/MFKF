@@ -1,10 +1,10 @@
 import React from 'react'
-import About from "./about"
+import Contact from './Contact'
 
 function page() {
   return (
     <>
-        <About/>
+      <Contact/>
     </>
   )
 }
