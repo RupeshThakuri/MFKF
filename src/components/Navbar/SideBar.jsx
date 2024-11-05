@@ -24,7 +24,7 @@ const SideBar = ({ openSideBar, setOpen }) => {
 
   return (
     <>
-      <section className={`${style.sidebar} h-screen p-9 ${openSideBar ? null : `${style.close_sidebar}`} z-50 fixed top-0 right-0`}>
+      <section className={`${style.sidebar} h-screen p-9 ${openSideBar ? null : `${style.close_sidebar}`} z-50 sticky`}>
         <div className='top flex justify-between items-center'>
           <div className='logo flex justify-center items-center flex-col'>
             <Image width={100} height={100} src="/Image/logo.png" alt="logo" />
