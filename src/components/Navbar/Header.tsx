@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useRef } from 'react';
 import Image from 'next/image';
 import style from "./header.module.css";
 import SideBar from "./SideBar";
@@ -10,6 +10,9 @@ import Link from 'next/link';
 import { Box, Button, ButtonBase, Container, Stack } from "@mui/material";
 import { usePathname } from 'next/navigation';
 
+//import different modules
+import { useOnClickOutside } from "@/utils/use-onclick-outside-hooks"
+
 function Header() {
   //to determine the current path
   const pathname = usePathname();
@@ -17,10 +20,17 @@ function Header() {
   // Changing background while scrolling to a certain section of the screen
   const [scroll, setScroll] = useState(false);
 
+  // State for sidebar
+  const [openSideBar, setOpenSideBar] = useState(false);
+
   // State for handling active index
   const [activeIndex, setActiveIndex] = useState(
     menuItems.findIndex(menu => menu.path === pathname)
   );
+
+  // Function to toggle the sidebar while clicking outside the sidebar or clicking esc key
+  const navRef = useRef<HTMLDivElement | null>(null);
+  useOnClickOutside(navRef, () => setOpenSideBar(false))
 
   useEffect(() => {
     // Update activeIndex based on the current pathname
@@ -40,12 +50,10 @@ function Header() {
   }, [pathname]); // Add pathname as a dependency
 
   // Searching active and setting the color different
-  const handleActive = (index) => {
+  const handleActive = (index: number) => {
     setActiveIndex(index);
   };
 
-  // State for sidebar
-  const [openSideBar, setOpenSideBar] = useState(false);
 
   return (
     <>
@@ -108,7 +116,9 @@ function Header() {
           </div>
         </Container>
       </Box>
-      <SideBar openSideBar={openSideBar} setOpen={setOpenSideBar} />
+      <div ref={navRef}>
+        <SideBar openSideBar={openSideBar} setOpen={setOpenSideBar} />
+      </div>
     </>
   );
 }

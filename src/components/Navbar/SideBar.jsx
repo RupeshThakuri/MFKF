@@ -19,7 +19,6 @@ import { menuItems } from "./menuData"
 //extra import
 import { Box, ButtonBase } from "@mui/material";
 
-
 const SideBar = ({ openSideBar, setOpen }) => {
 
   return (
