@@ -17,14 +17,14 @@ import { IoIosMail } from "react-icons/io";
 import { menuItems } from "./menuData"
 
 //extra import
-import { Box, ButtonBase} from "@mui/material";
+import { Box, ButtonBase } from "@mui/material";
 
 
 const SideBar = ({ openSideBar, setOpen }) => {
 
   return (
     <>
-      <section className={`${style.sidebar} h-screen p-9 ${openSideBar ? null : `${style.close_sidebar}`} z-50 sticky`}>
+      <section className={`${style.sidebar} fixed top-0 left-0 w-full h-screen p-9 ${openSideBar ? null : `${style.close_sidebar}`} z-50`}>
         <div className='top flex justify-between items-center'>
           <div className='logo flex justify-center items-center flex-col'>
             <Image width={100} height={100} src="/Image/logo.png" alt="logo" />
