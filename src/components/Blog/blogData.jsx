@@ -1,7 +1,7 @@
 export const blogData = [
     {
         id: 1,
-        img: "/Image/Amy.jpg",
+        img: "/Image/Amy.jpeg",
         title: "The Art of Communication",
         desc: "Communication is the cornerstone of success in both personal and professional life. This blog delves into essential techniques to enhance your communication skills, including active listening, clarity in speech, and effective use of non-verbal cues. Discover how to overcome communication barriers and build meaningful connections in diverse settings, whether in the workplace or your personal life.",
         dateDay: "15",
