@@ -4,11 +4,13 @@ import React, { useEffect, useState, useRef } from 'react';
 import Image from 'next/image';
 import style from "./header.module.css";
 import SideBar from "./SideBar";
-import { menuItems } from "./menuData";
 import { IoArrowForwardOutline } from "react-icons/io5";
 import Link from 'next/link';
 import { Box, Button, ButtonBase, Container, Stack } from "@mui/material";
 import { usePathname } from 'next/navigation';
+
+//data component
+import { menuItems } from "./menuData";
 
 //import different modules
 import { useOnClickOutside } from "@/utils/use-onclick-outside-hooks"
