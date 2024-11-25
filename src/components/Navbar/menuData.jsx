@@ -16,7 +16,7 @@ export const menuItems = [
     {
         id: 3,
         title: "Enroll Procdeure",
-        path: "/field",
+        path: "/procedure",
         newTab: false,
         active: false,
     },
