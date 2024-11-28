@@ -34,7 +34,7 @@
 
 @media screen and (max-width: 600px) {
     .blogImg{
-        width: 600px !important;
+        width: 500px !important;
         height: 300px !important;
     }
 
