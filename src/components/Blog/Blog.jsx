@@ -46,8 +46,8 @@ function Blog() {
                                     src={item.imgSrc}
                                     alt="member"
                                     className={`${style.images} rounded-xl`}
-                                    width={500}
-                                    height={700} />
+                                    width={300}
+                                    height={300} />
                             </div>
                             <div className={`${style.content} absolute top-1/2 text-center bg-red-400 h-26 p-2`}>
                                 <h1 className={`text-white text-lg font-semibold ${style.heading}`}>{item.title}</h1>
@@ -61,7 +61,7 @@ function Blog() {
             {/* Blogs With Pagination */}
             <div className='blogs p-9 flex flex-col lg:flex-row xl:flex-row bg-white w-full'>
                 {/* left section for */}
-                <div className='left ml-3 lg:ml-5 xl:ml-12 lg:mr-2 xl:mr-2 w-full lg:w-3/4 xl:w-3/4 flexflex-col items-center justify-center '>
+                <div className='left ml-1 lg:ml-5 xl:ml-12 lg:mr-2 xl:mr-2 w-full lg:w-3/4 xl:w-3/4 flexflex-col items-center justify-center '>
                     {blogData
                         .slice(firstItem, lastItem)
                         .map((item, index) => (

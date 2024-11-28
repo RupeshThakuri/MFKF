@@ -33,13 +33,21 @@
 }
 
 @media screen and (max-width: 600px) {
+    .imageCont,.images{
+        width: 360px !important;
+        height: 250px !important;
+    }
+    .imageCont:hover .images{
+        opacity: 0.6;
+    }
+
     .blogImg{
-        width: 500px !important;
+        width: 370px!important;
         height: 300px !important;
     }
 
     .blogContent{
-        width: 400px !important;
+        width: 360px !important;
     }
 }
 
