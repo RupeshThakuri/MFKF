@@ -15,7 +15,6 @@ import { blogData } from "../Blog/blogData"
 //style
 import styles from "./leadership.module.css"
 
-
 function Leadership() {
     //chaning images using btn
     const [activeIndex, setActiveIndex] = useState(leadershipData.findIndex((item) => item.active === true));
@@ -39,13 +38,13 @@ function Leadership() {
                         </button>
                         <div className='images flex gap-x-8 justify-center items-center'>
                             <div className='side_img h-1/2 hidden lg:block xl:block'>
-                                <Image src={leadershipData[getLeftIndex()].imgSrc} alt="" height={300} width={300} />
+                                <Image src={leadershipData[getLeftIndex()].imgSrc} alt="" height={300} width={300} className='rounded-md' />
                             </div>
                             <div className='center_img'>
-                                <Image src={leadershipData[activeIndex].imgSrc} alt="" height={500} width={500} />
+                                <Image src={leadershipData[activeIndex].imgSrc} alt="" height={500} width={500} className='rounded-md' />
                             </div>
                             <div className='side_img h-1/2 hidden lg:block xl:block'>
-                                <Image src={leadershipData[getRightIndex()].imgSrc} alt="" height={300} width={300} />
+                                <Image src={leadershipData[getRightIndex()].imgSrc} alt="" height={300} width={300} className='rounded-md' />
                             </div>
                         </div>
                         <button>
@@ -70,8 +69,12 @@ function Leadership() {
 
             {/* Leadership program blogs section */}
             <div className={`${styles.blogs} bg-white text-red-400 p-8 lg:p-12 xl:p-12`}>
-                <div className='top'>
+                <div className='top flex justify-between px-3'>
                     <h1 className='font-bold text-lg '>Our Latest Blogs</h1>
+                    <div className={`${styles.seeMore} relative`}>
+                        <a href='/blogs'>See More</a>
+                        <span className={`${styles.border} relative`}></span>
+                    </div>
                 </div>
                 <div className='blogData flex flex-col items-center justify-center'>
                     {

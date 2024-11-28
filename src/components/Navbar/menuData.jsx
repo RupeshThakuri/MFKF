@@ -29,8 +29,8 @@ export const menuItems = [
     },
     {
         id: 5,
-        title: "Gallery",
-        path: "/gallery",
+        title: "Blogs",
+        path: "/blogs",
         newTab: false,
         active: false,
     },

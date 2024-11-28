@@ -88,7 +88,7 @@ function Contact() {
                             </form>
                         </div>
                     </div>
-                    
+
                     {/* Map Section */}
                     <div className="overflow-hidden rounded-lg lg:col-span-2 h-96 lg:h-auto mt-12 w-full">
                         <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d882.9353699797939!2d85.36019741361537!3d27.72526716644506!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39eb1bdc110b73f5%3A0xff54e650e7004d91!2sP9G6%2B4C4%2C%20Kathmandu%2044600!5e0!3m2!1sen!2snp!4v1730727805941!5m2!1sen!2snp" width="100%" height="450" style={{ border: 0 }} allowFullScreen="" loading="lazy" referrerPolicy="no-referrer-when-downgrade"></iframe>
@@ -232,7 +232,7 @@ function Contact() {
                         </svg>
                     </summary>
                     <p className="mt-4 text-slate-500">
-                        Of course! If you want to donate and help the organization you can go to the facebook page of our founder. But try not to spam messages and bother the personal life of her. 
+                        Yes you can find different events we have done with some infomration of our important board members throught the blog section.
                     </p>
                 </details>
                 <details className="group p-4">
@@ -276,8 +276,7 @@ function Contact() {
                         </svg>
                     </summary>
                     <p className="mt-4 text-slate-500">
-                        You can always communicate with us through our social accounts and
-                        email address at info@wind-ui.com.
+                        Of course! If you want to donate and help the organization you can go to the facebook page of our founder. But try not to spam messages and bother the personal life of her.
                     </p>
                 </details>
             </section>

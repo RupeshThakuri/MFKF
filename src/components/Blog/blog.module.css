@@ -1,0 +1,58 @@
+/* gallery and blog card */
+
+.imageCont,.images{
+    width: 450px !important;
+    height: 250px !important;
+}
+.imageCont:hover .images{
+    opacity: 0.6;
+}
+
+.content{
+    opacity: 0.7;
+}
+
+.imageCont:hover .content{
+    opacity: 1;
+}
+
+.heading{
+    font-family: "Mansalva", cursive !important;
+}
+
+
+/* blog Section */
+.blogImg{
+    width: 600px !important;
+    height: 400px !important;
+}
+
+
+.blogContent{
+    width: 600px !important;
+}
+
+@media screen and (max-width: 600px) {
+    .blogImg{
+        width: 600px !important;
+        height: 300px !important;
+    }
+
+    .blogContent{
+        width: 400px !important;
+    }
+}
+
+.seeMoreBtn{
+    border: 1px solid #F87171;
+}
+
+/* review right */
+.reveiewImg{
+    width: 200px !important;
+    height: 195px !important;
+}
+
+.line{
+    height: 1px;
+}
