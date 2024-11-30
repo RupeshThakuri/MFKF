@@ -3,10 +3,12 @@
 import React, { useEffect, useState } from 'react';
 import Breadcrumbs from '@/breadcrumbs/breadcrumbs';
 import Image from 'next/image';
+import Link from 'next/link';
 
 //icons
 import { IoIosArrowBack } from "react-icons/io";
 import { IoIosArrowForward } from "react-icons/io";
+import { FaArrowRight } from "react-icons/fa";
 
 //data component
 import { leadershipData } from "./leadershipData"
@@ -72,7 +74,7 @@ function Leadership() {
                 <div className='top flex justify-between px-3'>
                     <h1 className='font-bold text-lg '>Our Latest Blogs</h1>
                     <div className={`${styles.seeMore} relative`}>
-                        <a href='/blogs'>See More</a>
+                        <Link href={"/blogs"} className='flex justify-center items-center'>See More <FaArrowRight className='ml-2'/></Link>
                         <span className={`${styles.border} relative`}></span>
                     </div>
                 </div>

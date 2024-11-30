@@ -13,9 +13,11 @@ import { IoIosArrowForward } from "react-icons/io";
 
 
 //data components
-import { secData } from "./blgoSecData";
 import { blogData } from "./blogData";
 import { reviewData } from "./reviewData"
+
+
+import BlgoSecCom from "@/utils/BlogGallerySec/blgoSecCom"
 
 
 function Blog() {
@@ -37,26 +39,7 @@ function Blog() {
     return (
         <>
             {/* Gallery or Blogs section */}
-            <div className='section py-5 flex flex-col items-center justify-center lg:flex-row xl:flex-row'>
-                {secData.map((item, index) => (
-                    <>
-                        <div className={`${style.imageCont} relative cursor-pointer m-7`} key={index}>
-                            <div className='img '>
-                                <Image
-                                    src={item.imgSrc}
-                                    alt="member"
-                                    className={`${style.images} rounded-xl`}
-                                    width={300}
-                                    height={300} />
-                            </div>
-                            <div className={`${style.content} absolute top-1/2 text-center bg-red-400 h-26 p-2`}>
-                                <h1 className={`text-white text-lg font-semibold ${style.heading}`}>{item.title}</h1>
-                                <p className='font-mono text-gray-100'>{item.desc}</p>
-                            </div>
-                        </div>
-                    </>
-                ))}
-            </div>
+            <BlgoSecCom />
 
             {/* Blogs With Pagination */}
             <div className='blogs p-9 flex flex-col lg:flex-row xl:flex-row bg-white w-full'>

@@ -1,0 +1,31 @@
+/* gallery and blog card */
+
+.imageCont,.images{
+    width: 450px !important;
+    height: 250px !important;
+}
+.imageCont:hover .images{
+    opacity: 0.6;
+}
+
+.content{
+    opacity: 0.7;
+}
+
+.imageCont:hover .content{
+    opacity: 1;
+}
+
+.heading{
+    font-family: "Mansalva", cursive !important;
+}
+
+@media screen and (max-width: 600px) {
+    .imageCont,.images{
+        width: 360px !important;
+        height: 250px !important;
+    }
+    .imageCont:hover .images{
+        opacity: 0.6;
+    }
+}
