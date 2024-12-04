@@ -1,6 +1,9 @@
+"use client"
+
 import React from 'react'
 import styles from "./procedure.module.css"
 import Breadcrumbs from '@/breadcrumbs/breadcrumbs'
+import { useRouter } from 'next/navigation';
 
 //icons
 import { FaBookReader } from "react-icons/fa";
@@ -11,6 +14,12 @@ import { GiBrain } from "react-icons/gi";
 import { procedureData } from "./procedureData"
 
 const ProcedureComp = () => {
+    //redirecting to form
+    const router = useRouter(); 
+    const redirectForm = () => {
+        window.location.href = 'https://docs.google.com/forms/d/e/1FAIpQLSdt3k7nAt6P3KAlLpStV9F8Gm8a7bLtNVwGyT1sPR_i-evHSA/viewform?usp=sf_link';
+    }
+
     return (
         <>
 
@@ -20,7 +29,7 @@ const ProcedureComp = () => {
                     <h2 className={`text-3xl font-bold leading-tight text-red-400 sm:text-4xl lg:text-5xl ${styles.heading}`}>Requirements / Conditions </h2>
                     <p className="max-w-lg mx-auto mt-4 text-base leading-relaxed text-gray-600">Following Requirements should be fulfilled to be eligible for the program</p>
                 </div>
-                <div className="px-4 mx-auto max-w-7xl sm:px-6 lg:px-8">
+                <div className="px-4 mx-auto max-w-7xl sm:px-6 lg:px-8 flex flex-col justify-center items-center">
                     <div className="grid grid-cols-1 gap-12 text-center sm:grid-cols-2 md:grid-cols-3 lg:gap-y-16">
                         <div>
                             <div className="relative flex items-center justify-center mx-auto">
@@ -61,6 +70,7 @@ const ProcedureComp = () => {
                             <p className="mt-4 text-base text-gray-600">We want to see the spark of the ability to dive into the world full of knwledge and dig the best ornaments that can decore their life the best way.</p>
                         </div>
                     </div>
+                    <button className='mt-5 py-3 px-8 rounded-md text-white bg-red-400 hover:bg-red-500' onClick={()=>redirectForm()}>Enroll Now</button>
                 </div>
             </section>
 

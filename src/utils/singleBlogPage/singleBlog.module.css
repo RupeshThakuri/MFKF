@@ -1,3 +1,9 @@
+/* images on the main left section */
+.mainImage{
+    width: 800px !important;
+    height: 500px !important;
+}
+
 /* for images in the right section */
 .authorCard{
     width: 150px !important;

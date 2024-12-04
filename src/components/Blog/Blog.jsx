@@ -1,6 +1,7 @@
 "use client"
 
 import React, { useState } from 'react';
+import { useRouter } from 'next/navigation';
 import Image from 'next/image';
 
 
@@ -15,13 +16,11 @@ import { IoIosArrowForward } from "react-icons/io";
 //data components
 import { blogData } from "./blogData";
 import { reviewData } from "./reviewData"
-
-
 import BlgoSecCom from "@/utils/BlogGallerySec/blgoSecCom"
 
 
 function Blog() {
-    const [blogPerPage, setBlogPerPage] = useState(3);
+    const blogPerPage = 3;
     const [currentPage, setCurrentPage] = useState(0);
 
     const firstItem = currentPage * blogPerPage;
@@ -33,6 +32,15 @@ function Blog() {
 
     for (let i = 0; i < numOfPage; i++) {
         pages.push(i + 1);
+    }
+
+    //redirecting to single Blog page with the item value 
+    const router = useRouter();
+    const redirectSinglePage =(item) => {
+        const query = new URLSearchParams(item).toString();
+        router.push(
+            `/singleBlog?title=${encodeURIComponent(item.title)}&label=${encodeURIComponent(item.label)}&dateMonth=${encodeURIComponent(item.dateMonth)}&dateDay=${encodeURIComponent(item.dateDay)}&dateYear=${encodeURIComponent(item.dateYear)}&img=${encodeURIComponent(item.img)}`
+        ); 
     }
 
 
@@ -68,7 +76,7 @@ function Blog() {
                                         <div className={`${style.blogContent} mt-5 leading-10`}>
                                             <h1 className='font-bold text-3xl'>{item.title}</h1>
                                             <p className='text-gray-500 leading-8'>{item.desc}</p>
-                                            <button className={`${style.seeMoreBtn} rounded-full text-red-400  px-6 hover:bg-red-400 hover:text-white`}> Read More</button>
+                                            <button className={`${style.seeMoreBtn} rounded-full text-red-400  px-6 hover:bg-red-400 hover:text-white`} onClick={() => redirectSinglePage(item)}> Read More</button>
                                         </div>
                                     </div>
                                 </div>

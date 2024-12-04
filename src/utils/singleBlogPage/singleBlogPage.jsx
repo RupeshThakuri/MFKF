@@ -1,6 +1,9 @@
+"use client"
+
 import React from 'react'
 import Breadcrumbs from '@/breadcrumbs/breadcrumbs'
 import Image from 'next/image'
+import { useSearchParams } from 'next/navigation';
 
 //css
 import style from "./singleBlog.module.css"
@@ -13,6 +16,16 @@ import { CiSearch } from "react-icons/ci";
 
 
 function SingleBlogPage() {
+    const searchParams = useSearchParams();
+    const singleBlogData = {
+        title: searchParams.get('title'),
+        label: searchParams.get('label'),
+        dateMonth: searchParams.get('dateMonth'),
+        dateDay: searchParams.get('dateDay'),
+        dateYear: searchParams.get('dateYear'),
+        img: searchParams.get('img'),
+    };
+
     return (
         <>
             <Breadcrumbs title="Blog" />
@@ -25,21 +38,21 @@ function SingleBlogPage() {
                     {/* Blog main image */}
                     <div className="w-full">
                         <Image
-                            src="/Image/pokhara.jpeg"
+                            src={singleBlogData.img}
                             alt="Main Blog Image"
                             width={800}
                             height={400}
-                            className="w-full h-auto rounded-lg"
+                            className={`${style.mainImage} w-full h-auto rounded-lg`}
                         />
                     </div>
 
                     {/* Blog content 1*/}
                     <div className='mt-3 mb-3'>
                         <h1 className="text-3xl font-bold mb-2">
-                            Astronomy Binoculars A Great Alternative
+                            {singleBlogData.title}
                         </h1>
                         <div className="text-gray-500 text-sm mb-4">
-                            <p>Post: Technology | Date: October 30, 2024 | 12 Comments</p>
+                            <p>Post: Technology | Date: {singleBlogData.dateMonth} {singleBlogData.dateDay}, {singleBlogData.dateYear} | 12 Comments</p>
                         </div>
                         <p className="text-gray-700 leading-relaxed mb-4">
                             MCSE boot camps have their supporters and detractors. Some people
