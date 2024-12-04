@@ -1,6 +1,6 @@
 "use client"
 
-import React, { useState } from 'react';
+import React, { useState, Suspense } from 'react';
 import { useRouter } from 'next/navigation';
 import Image from 'next/image';
 
@@ -36,11 +36,11 @@ function Blog() {
 
     //redirecting to single Blog page with the item value 
     const router = useRouter();
-    const redirectSinglePage =(item) => {
+    const redirectSinglePage = (item) => {
         const query = new URLSearchParams(item).toString();
         router.push(
             `/singleBlog?title=${encodeURIComponent(item.title)}&label=${encodeURIComponent(item.label)}&dateMonth=${encodeURIComponent(item.dateMonth)}&dateDay=${encodeURIComponent(item.dateDay)}&dateYear=${encodeURIComponent(item.dateYear)}&img=${encodeURIComponent(item.img)}`
-        ); 
+        );
     }
 
 
@@ -57,30 +57,31 @@ function Blog() {
                         .slice(firstItem, lastItem)
                         .map((item, index) => (
                             <>
-                                <div className='blogCard flex items-center justify-center mt-7 flex-col lg:flex-row xl:flex-row' key={index}>
-                                    <div className='left_top mr-6 mb-3 float-right w-full lg:w-28 xl:w-36'>
-                                        <h1 className={`${style.heading} font-bold text-lg text-red-400`}>{item.title}</h1>
-                                        <p className='text-blue-300'>{item.label}</p>
-                                        <p>{item.dateMonth} {item.dateDay}, {item.dateYear} </p>
-                                    </div>
-                                    <div className='right'>
-                                        <div className='blogImg'>
-                                            <Image
-                                                src={item.img}
-                                                alt="member"
-                                                className={`${style.blogImg} rounded-xl`}
-                                                width={900}
-                                                height={800}
-                                            />
+                                <Suspense fallback={<div>Loading...</div>}>
+                                    <div className='blogCard flex items-center justify-center mt-7 flex-col lg:flex-row xl:flex-row' key={index}>
+                                        <div className='left_top mr-6 mb-3 float-right w-full lg:w-28 xl:w-36'>
+                                            <h1 className={`${style.heading} font-bold text-lg text-red-400`}>{item.title}</h1>
+                                            <p className='text-blue-300'>{item.label}</p>
+                                            <p>{item.dateMonth} {item.dateDay}, {item.dateYear} </p>
                                         </div>
-                                        <div className={`${style.blogContent} mt-5 leading-10`}>
-                                            <h1 className='font-bold text-3xl'>{item.title}</h1>
-                                            <p className='text-gray-500 leading-8'>{item.desc}</p>
-                                            <button className={`${style.seeMoreBtn} rounded-full text-red-400  px-6 hover:bg-red-400 hover:text-white`} onClick={() => redirectSinglePage(item)}> Read More</button>
+                                        <div className='right'>
+                                            <div className='blogImg'>
+                                                <Image
+                                                    src={item.img}
+                                                    alt="member"
+                                                    className={`${style.blogImg} rounded-xl`}
+                                                    width={900}
+                                                    height={800}
+                                                />
+                                            </div>
+                                            <div className={`${style.blogContent} mt-5 leading-10`}>
+                                                <h1 className='font-bold text-3xl'>{item.title}</h1>
+                                                <p className='text-gray-500 leading-8'>{item.desc}</p>
+                                                <button className={`${style.seeMoreBtn} rounded-full text-red-400  px-6 hover:bg-red-400 hover:text-white`} onClick={() => redirectSinglePage(item)}> Read More</button>
+                                            </div>
                                         </div>
                                     </div>
-                                </div>
-
+                                </Suspense>
                             </>
                         ))}
 
