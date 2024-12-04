@@ -17,6 +17,7 @@ import { CiSearch } from "react-icons/ci";
 
 function SingleBlogPage() {
     const searchParams = useSearchParams();
+
     const singleBlogData = {
         title: searchParams.get('title'),
         label: searchParams.get('label'),
