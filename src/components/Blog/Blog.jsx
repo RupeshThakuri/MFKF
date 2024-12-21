@@ -37,7 +37,6 @@ function Blog() {
     //redirecting to single Blog page with the item value 
     const router = useRouter();
     const redirectSinglePage = (item) => {
-        const query = new URLSearchParams(item).toString();
         router.push(
             `/singleBlog?title=${encodeURIComponent(item.title)}&label=${encodeURIComponent(item.label)}&dateMonth=${encodeURIComponent(item.dateMonth)}&dateDay=${encodeURIComponent(item.dateDay)}&dateYear=${encodeURIComponent(item.dateYear)}&img=${encodeURIComponent(item.img)}`
         );

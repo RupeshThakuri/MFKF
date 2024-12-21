@@ -4,6 +4,7 @@ import React, { useEffect, useState } from 'react';
 import Breadcrumbs from '@/breadcrumbs/breadcrumbs';
 import Image from 'next/image';
 import Link from 'next/link';
+import { useRouter } from 'next/navigation';
 
 //icons
 import { IoIosArrowBack } from "react-icons/io";
@@ -27,6 +28,14 @@ function Leadership() {
 
     const getRightIndex = () =>
         (activeIndex + 1) % leadershipData.length;
+
+    //clicking see more open single blog
+    const router = useRouter();
+    const redirectSinglePage = (item) => {  
+        router.push(
+            `/singleBlog?title=${encodeURIComponent(item.title)}&label=${encodeURIComponent(item.label)}&dateMonth=${encodeURIComponent(item.dateMonth)}&dateDay=${encodeURIComponent(item.dateDay)}&dateYear=${encodeURIComponent(item.dateYear)}&img=${encodeURIComponent(item.img)}`
+        )
+    }
 
     return (
         <>
@@ -78,7 +87,7 @@ function Leadership() {
                         <span className={`${styles.border} relative`}></span>
                     </div>
                 </div>
-                <div className='blogData flex flex-col items-center justify-center'>
+                <div className='blogData flex flex-col justify-center items-center'>
                     {
                         blogData
                             .filter((item) => item.label === "latest")
@@ -124,6 +133,7 @@ function Leadership() {
                                                     <a
                                                         href="#"
                                                         className="block bg-gray-200 px-5 py-3 text-center text-xs font-bold uppercase text-gray-900 transition hover:bg-gray-400"
+                                                        onClick={() => redirectSinglePage(item)}
                                                     >
                                                         Read Blog
                                                     </a>

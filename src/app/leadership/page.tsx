@@ -1,11 +1,13 @@
-import React from 'react'
-import Leadership from "@/components/Leadership/Leadership"
+import React, { Suspense } from 'react'
+import Leadership from "@/components/Leadership/Leadership";
 
 
 function page() {
   return (
     <>
-      <Leadership />
+      <Suspense fallback={<div>Loading...</div>}>
+        <Leadership />
+      </Suspense>
     </>
   )
 }

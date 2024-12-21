@@ -2,6 +2,7 @@
 
 import React, { useRef } from 'react'
 import emailjs from '@emailjs/browser';
+
 //for tostify success after msg is sent
 import { ToastContainer, toast, Bounce } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
@@ -113,14 +114,14 @@ function Contact() {
                                         <div>
                                             <label for="" className="text-base font-medium text-gray-900"> Email address </label>
                                             <div className="mt-2.5 relative">
-                                                <input type="email" name="email" id="" placeholder="Enter your full name" className="block w-full px-4 py-4 text-black placeholder-gray-500 transition-all duration-200 bg-white border border-gray-200 rounded-md focus:outline-none focus:border-red-600 caret-red-600" />
+                                                <input type="email" name="email" id="" placeholder="Enter your email" className="block w-full px-4 py-4 text-black placeholder-gray-500 transition-all duration-200 bg-white border border-gray-200 rounded-md focus:outline-none focus:border-red-600 caret-red-600" />
                                             </div>
                                         </div>
 
                                         <div>
                                             <label for="" className="text-base font-medium text-gray-900"> Phone number </label>
                                             <div className="mt-2.5 relative">
-                                                <input type="tel" name="number" id="" placeholder="Enter your full name" className="block w-full px-4 py-4 text-black placeholder-gray-500 transition-all duration-200 bg-white border border-gray-200 rounded-md focus:outline-none focus:border-red-600 caret-red-600" />
+                                                <input type="tel" name="number" id="" placeholder="Enter your phone number" className="block w-full px-4 py-4 text-black placeholder-gray-500 transition-all duration-200 bg-white border border-gray-200 rounded-md focus:outline-none focus:border-red-600 caret-red-600" />
                                             </div>
                                         </div>
 
@@ -134,7 +135,7 @@ function Contact() {
                                         <div className="sm:col-span-2">
                                             <label for="" className="text-base font-medium text-gray-900"> Message </label>
                                             <div className="mt-2.5 relative">
-                                                <textarea name="message" id="" placeholder="" className="block w-full px-4 py-4 text-black placeholder-gray-500 transition-all duration-200 bg-white border border-gray-200 rounded-md resize-y focus:outline-none focus:border-red-600 caret-red-600" rows="4"></textarea>
+                                                <textarea name="message" id="" placeholder="Enter your message" className="block w-full px-4 py-4 text-black placeholder-gray-500 transition-all duration-200 bg-white border border-gray-200 rounded-md resize-y focus:outline-none focus:border-red-600 caret-red-600" rows="4"></textarea>
                                             </div>
                                         </div>
 

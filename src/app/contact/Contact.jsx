@@ -1,11 +1,59 @@
-import React from 'react'
+"use client"
+
+import React, { useRef } from 'react'
+import emailjs from '@emailjs/browser';
+
+//components
 import Breadcrumbs from '@/breadcrumbs/breadcrumbs'
+
+//css
 import style from "./contact.module.css"
 
+//for tostify success after msg is sent
+import { ToastContainer, toast, Bounce } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
 function Contact() {
+    const form = useRef();
+
+    function sendEmail(e) {
+        e.preventDefault();
+
+        emailjs.sendForm('service_2or7zgk', 'template_yy7znzm', form.current, 'rCL0EUhIEHi_1DlgH')
+            .then((result) => {
+                toast("Submitted Successfully!", {
+                    position: "top-right",
+                    autoClose: 5000,
+                    hideProgressBar: false,
+                    closeOnClick: true,
+                    pauseOnHover: true,
+                    draggable: true,
+                    progress: undefined,
+                    theme: "light",
+                    transition: Bounce,
+                });
+            }, (error) => {
+                toast.error("Submission Failed!" + error, {
+                    position: "top-right",
+                    autoClose: 5000,
+                    hideProgressBar: false,
+                    closeOnClick: true,
+                    pauseOnHover: true,
+                    draggable: true,
+                    progress: undefined,
+                    theme: "light",
+                    transition: Bounce,
+                });
+            });
+
+        e.target.reset();
+    }
+
     return (
         <>
+            <ToastContainer />
             <Breadcrumbs title="Contact" />
+
             {/* Contact with map section */}
             <section className="bg-gray-200">
                 <div className="container px-6 py-12 mx-auto flex flex-col justify-center items-center">
@@ -54,32 +102,32 @@ function Contact() {
                         </div>
                         {/* form section */}
                         <div className="p-4 py-6 rounded-lg bg-white md:p-8 mt-6">
-                            <form>
+                            <form ref={form} onSubmit={sendEmail}>
                                 <div className="-mx-2 md:items-center md:flex">
                                     <div className="flex-1 px-2">
-                                        <label className="block mb-2 text-sm text-black ">First Name</label>
-                                        <input type="text" placeholder="John " className="block w-full px-5 py-2.5 mt-2 text-black placeholder-gray-400 bg-white border border-gray-200 rounded-lg focus:border-red-400  focus:ring-red-400 focus:outline-none focus:ring focus:ring-opacity-40" />
+                                        <label className="block mb-2 text-sm text-black ">Full Name</label>
+                                        <input type="text" placeholder="John Doe" name='name' className="block w-full px-5 py-2.5 mt-2 text-black placeholder-gray-400 bg-white border border-gray-200 rounded-lg focus:border-red-400  focus:ring-red-400 focus:outline-none focus:ring focus:ring-opacity-40" />
                                     </div>
 
                                     <div className="flex-1 px-2 mt-4 md:mt-0">
-                                        <label className="block mb-2 text-sm text-gray-600">Last Name</label>
-                                        <input type="text" placeholder="Doe" className="block w-full px-5 py-2.5 mt-2 text-gray-700 placeholder-gray-400 bg-white border border-gray-200 rounded-lg  focus:border-red-400  focus:ring-red-400 focus:outline-none focus:ring focus:ring-opacity-40" />
+                                        <label className="block mb-2 text-sm text-gray-600">Phone Num</label>
+                                        <input type="tel" placeholder="+977 98123123123" name='number' className="block w-full px-5 py-2.5 mt-2 text-gray-700 placeholder-gray-400 bg-white border border-gray-200 rounded-lg  focus:border-red-400  focus:ring-red-400 focus:outline-none focus:ring focus:ring-opacity-40" />
                                     </div>
                                 </div>
 
                                 <div className="mt-4">
                                     <label className="block mb-2 text-sm text-gray-600 ">Email address</label>
-                                    <input type="email" placeholder="johndoe@example.com" className="block w-full px-5 py-2.5 mt-2 text-gray-700 placeholder-gray-400 bg-white border border-gray-200 rounded-lg  focus:border-red-400 focus:ring-red-400 focus:outline-none focus:ring focus:ring-opacity-40" />
+                                    <input type="email" placeholder="johndoe@example.com" name='email' className="block w-full px-5 py-2.5 mt-2 text-gray-700 placeholder-gray-400 bg-white border border-gray-200 rounded-lg  focus:border-red-400 focus:ring-red-400 focus:outline-none focus:ring focus:ring-opacity-40" />
                                 </div>
 
                                 <div className="mt-4">
                                     <label className="block mb-2 text-sm text-gray-600 ">Subject</label>
-                                    <input type="email" placeholder="About donating and collaborating" className="block w-full px-5 py-2.5 mt-2 text-gray-700 placeholder-gray-400 bg-white border border-gray-200 rounded-lg  focus:border-red-400 focus:ring-red-400 focus:outline-none focus:ring focus:ring-opacity-40" />
+                                    <input type="text" placeholder="About donating and collaborating" name='subject' className="block w-full px-5 py-2.5 mt-2 text-gray-700 placeholder-gray-400 bg-white border border-gray-200 rounded-lg  focus:border-red-400 focus:ring-red-400 focus:outline-none focus:ring focus:ring-opacity-40" />
                                 </div>
 
                                 <div className="w-full mt-4">
                                     <label className="block mb-2 text-sm text-gray-600 ">Message</label>
-                                    <textarea className="block w-full h-32 px-5 py-2.5 mt-2 text-gray-700 placeholder-gray-400 bg-white border border-gray-200 rounded-lg md:h-56  focus:border-red-400  focus:ring-red-400 focus:outline-none focus:ring focus:ring-opacity-40" placeholder="Message"></textarea>
+                                    <textarea  name='message' className="block w-full h-32 px-5 py-2.5 mt-2 text-gray-700 placeholder-gray-400 bg-white border border-gray-200 rounded-lg md:h-56  focus:border-red-400  focus:ring-red-400 focus:outline-none focus:ring focus:ring-opacity-40" placeholder="Message"></textarea>
                                 </div>
 
                                 <button className="w-full px-6 py-3 mt-4 text-sm font-medium tracking-wide text-white capitalize transition-colors duration-300 transform bg-red-500 rounded-lg hover:bg-red-400 focus:outline-none focus:ring focus:ring-red-300 focus:ring-opacity-50">
