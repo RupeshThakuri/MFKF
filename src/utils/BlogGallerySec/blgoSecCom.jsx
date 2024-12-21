@@ -20,21 +20,28 @@ function BlgoSecCom() {
     return (
         <>
             {/* Gallery or Blogs section */}
-            <div className='section py-5 flex flex-col items-center justify-center lg:flex-row xl:flex-row'>
+            <div className='section flex flex-col items-center justify-around flex-wrap lg:flex-row xl:flex-row'>
                 {secData.map((item, index) => (
                     <>
-                        <div className={`${style.imageCont} relative cursor-pointer m-7`} key={index} onClick={() => redirectPage(item.path)}>
-                            <div className='img '>
+                        <div className={` overflow-hidden rounded bg-white text-slate-500 shadow-md shadow-slate-200 my-5 cursor-pointer`} key={index} onClick={()=>redirectPage(item.path)}>
+                            {/*  <!--  Image --> */}
+                            <figure>
                                 <Image
                                     src={item.imgSrc}
-                                    alt="member"
-                                    className={`${style.images} rounded-xl`}
+                                    alt="secBg"
                                     width={300}
-                                    height={300} />
-                            </div>
-                            <div className={`${style.content} absolute top-1/2 text-center bg-red-400 h-26 p-2`}>
-                                <h1 className={`text-white text-lg font-semibold ${style.heading}`}>{item.title}</h1>
-                                <p className='font-mono text-gray-100'>{item.desc}</p>
+                                    height={400}
+                                    className={`w-full h-full object-cover ${style.images}`}
+                                />
+                            </figure>
+                            {/*  <!-- Body--> */}
+                            <div className={`${style.content} p-6`}>
+                                <header className="">
+                                    <h3 className="text-xl font-medium text-slate-700">
+                                        {item.title}
+                                    </h3>
+                                    <p className="text-sm text-slate-400">{item.desc}</p>
+                                </header>
                             </div>
                         </div>
                     </>
