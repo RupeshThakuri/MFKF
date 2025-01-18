@@ -22,7 +22,7 @@ function Donation() {
     return (
         <>
             {activeMetaPage ?
-                <MetaDonation />
+                <MetaDonation setDonatePage={setActiveMetaPage}/>
                 :
                 <form>
                     <div className={`${style.donate} flex justify-center items-center my-10`}>
