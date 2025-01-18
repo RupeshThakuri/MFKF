@@ -3,6 +3,7 @@
 import React, { useState, useEffect } from 'react';
 import style from "./Hero.module.css";
 import { Button } from '@mui/material';
+import Link from 'next/link';
 
 // Importing images or components
 import { HeroImg } from './HeroImg';
@@ -43,12 +44,16 @@ const Hero = () => {
                     </p>
                 </div>
                 <div className="mt-8 flex flex-col sm:flex-row sm:space-x-4 space-y-4 sm:space-y-0">
-                    <Button variant="contained" className={`py-2 px-6 bg-red-400 hover:bg-red-500 sm:bg-red-400 ${style.contained}`}>
-                        Donate
-                    </Button>
-                    <Button variant="outlined" className={`py-2 px-6 text-white border-white sm:text-white sm:border-red-400 ${style.outlined}`}>
-                        Contact Us
-                    </Button>
+                    <Link href="/donate">
+                        <Button variant="contained" className={`py-2 px-6 bg-red-400 hover:bg-red-500 sm:bg-red-400 ${style.contained}`}>
+                            Donate
+                        </Button>
+                    </Link>
+                    <Link href="/contact">
+                        <Button variant="outlined" className={`py-2 px-6 text-white border-white sm:text-white sm:border-red-400 ${style.outlined}`}>
+                            Contact Us
+                        </Button>
+                    </Link>
                 </div>
             </div>
         </div>
