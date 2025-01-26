@@ -1,11 +1,12 @@
 "use client"
 
-import React, { useEffect } from "react"
-import Glide from "@glidejs/glide"
-import Image from "next/image"
+import React, { useEffect } from "react";
+import Glide from "@glidejs/glide";
+import Image from "next/image";
+import { motion } from "framer-motion";
 
 // Import data or module
-import {GalleryData} from "./GalleryData"
+import { GalleryData } from "./GalleryData";
 
 export default function Gallery() {
   useEffect(() => {
@@ -30,12 +31,12 @@ export default function Gallery() {
           perView: 1,
         },
       },
-    }).mount()
+    }).mount();
 
     return () => {
-      slider.destroy()
-    }
-  }, [])
+      slider.destroy();
+    };
+  }, []);
 
   return (
     <>
@@ -43,8 +44,12 @@ export default function Gallery() {
         <div data-glide-el="track">
           <ul className="whitespace-no-wrap flex-no-wrap [backface-visibility: hidden] [transform-style: preserve-3d] [touch-action: pan-Y] [will-change: transform] relative flex w-full overflow-hidden p-0 pb-12">
             {GalleryData.map((data, index) => (
-              <li key={index}> 
-                <div className="relative flex flex-col md:flex-row w-full my-6 bg-white shadow-sm border border-slate-200 rounded-lg h-90">
+              <li key={index}>
+                <motion.div
+                  className="relative flex flex-col md:flex-row w-full my-6 bg-white shadow-sm border border-slate-200 rounded-lg h-90"
+                  whileHover={{ scale: 1.02 }}
+                  transition={{ duration: 0.3 }}
+                >
                   <div className="relative p-2.5 md:w-2/5 shrink-0 overflow-hidden">
                     <Image
                       src={data.src}
@@ -55,7 +60,13 @@ export default function Gallery() {
                     />
                   </div>
                   <div className="p-6">
-                    <div className="mb-4 rounded-full bg-teal-600 py-0.5 px-2.5 border border-transparent text-xs text-white transition-all shadow-sm w-fit text-center">{data.event}</div>
+                    <motion.div
+                      className="mb-4 rounded-full bg-teal-600 py-0.5 px-2.5 border border-transparent text-xs text-white transition-all shadow-sm w-fit text-center"
+                      whileHover={{ scale: 1.05 }}
+                      transition={{ duration: 0.2 }}
+                    >
+                      {data.event}
+                    </motion.div>
                     <h4 className="mb-2 text-slate-800 text-xl font-semibold">
                       {data.heading}
                     </h4>
@@ -63,12 +74,12 @@ export default function Gallery() {
                       {data.desc}
                     </p>
                   </div>
-                </div>
+                </motion.div>
               </li>
             ))}
           </ul>
         </div>
       </div>
     </>
-  )
+  );
 }

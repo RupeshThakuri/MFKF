@@ -1,15 +1,16 @@
 "use client"
 
-import React, { useRef } from 'react'
+import React, { useRef } from 'react';
 import emailjs from '@emailjs/browser';
+import { motion } from 'framer-motion';
 
-//components
-import Breadcrumbs from '@/breadcrumbs/breadcrumbs'
+// Components
+import Breadcrumbs from '@/breadcrumbs/breadcrumbs';
 
-//css
-import style from "./contact.module.css"
+// CSS
+import style from "./contact.module.css";
 
-//for tostify success after msg is sent
+// For toastify success after msg is sent
 import { ToastContainer, toast, Bounce } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
@@ -57,97 +58,135 @@ function Contact() {
             {/* Contact with map section */}
             <section className="bg-gray-200">
                 <div className="container px-6 py-12 mx-auto flex flex-col justify-center items-center">
-                    <div className='flex flex-col items-center'>
+                    <motion.div 
+                        className='flex flex-col items-center'
+                        initial={{ opacity: 0, y: 50 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.6 }}
+                    >
                         <p className={`${style.inTouch} font-medium text-red-500`}>Get in touch</p>
                         <h1 className="mt-2 text-2xl font-semibold text-red-400 md:text-3xl">Contact Us</h1>
-                        <p className="mt-3 text-gray-500 ">Our friendly team would love to hear from you.</p>
-                    </div>
+                        <p className="mt-3 text-gray-500">Our friendly team would love to hear from you.</p>
+                    </motion.div>
 
-                    <div className="grid grid-cols-1 mt-10 lg:grid-cols-3 lg:ml-72 xl:ml-90">
+                    <motion.div 
+                        className="grid grid-cols-1 mt-10 lg:grid-cols-3 lg:ml-72 xl:ml-90"
+                        initial={{ opacity: 0, y: 50 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.6, delay: 0.2 }}
+                    >
                         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-1">
                             {/* Email Section */}
-                            <div>
-                                <span className="inline-block p-3 text-red-500 rounded-full bg-red-100/80 ">
+                            <motion.div 
+                                initial={{ opacity: 0, x: -50 }}
+                                whileInView={{ opacity: 1, x: 0 }}
+                                transition={{ duration: 0.6, delay: 0.4 }}
+                            >
+                                <span className="inline-block p-3 text-red-500 rounded-full bg-red-100/80">
                                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className="w-5 h-5">
                                         <path strokeLinecap="round" strokeLinejoin="round" d="M21.75 6.75v10.5a2.25 2.25 0 01-2.25 2.25h-15a2.25 2.25 0 01-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25m19.5 0v.243a2.25 2.25 0 01-1.07 1.916l-7.5 4.615a2.25 2.25 0 01-2.36 0L3.32 8.91a2.25 2.25 0 01-1.07-1.916V6.75" />
                                     </svg>
                                 </span>
-                                <h2 className="mt-4 text-base font-medium text-gray-800 ">Email</h2>
-                                <p className="mt-2 text-sm text-gray-500 ">Our friendly team is here to help.</p>
+                                <h2 className="mt-4 text-base font-medium text-gray-800">Email</h2>
+                                <p className="mt-2 text-sm text-gray-500">Our friendly team is here to help.</p>
                                 <p className="mt-2 text-sm text-red-500">hello@merakiui.com</p>
-                            </div>
+                            </motion.div>
+
                             {/* Office Section */}
-                            <div>
-                                <span className="inline-block p-3 text-red-500 rounded-full bg-red-100/80 ">
+                            <motion.div 
+                                initial={{ opacity: 0, x: -50 }}
+                                whileInView={{ opacity: 1, x: 0 }}
+                                transition={{ duration: 0.6, delay: 0.6 }}
+                            >
+                                <span className="inline-block p-3 text-red-500 rounded-full bg-red-100/80">
                                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className="w-5 h-5">
                                         <path strokeLinecap="round" strokeLinejoin="round" d="M15 10.5a3 3 0 11-6 0 3 3 0 016 0z" />
                                         <path strokeLinecap="round" strokeLinejoin="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1115 0z" />
                                     </svg>
                                 </span>
-                                <h2 className="mt-4 text-base font-medium text-gray-800 ">Office</h2>
-                                <p className="mt-2 text-sm text-gray-500 ">Come say hello at our office HQ.</p>
-                                <p className="mt-2 text-sm text-red-500 ">100 Smith Street Collingwood VIC 3066 AU</p>
-                            </div>
+                                <h2 className="mt-4 text-base font-medium text-gray-800">Office</h2>
+                                <p className="mt-2 text-sm text-gray-500">Come say hello at our office HQ.</p>
+                                <p className="mt-2 text-sm text-red-500">100 Smith Street Collingwood VIC 3066 AU</p>
+                            </motion.div>
+
                             {/* Phone Section */}
-                            <div>
-                                <span className="inline-block p-3 text-red-500 rounded-full bg-red-100/80 ">
+                            <motion.div 
+                                initial={{ opacity: 0, x: -50 }}
+                                whileInView={{ opacity: 1, x: 0 }}
+                                transition={{ duration: 0.6, delay: 0.8 }}
+                            >
+                                <span className="inline-block p-3 text-red-500 rounded-full bg-red-100/80">
                                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className="w-5 h-5">
                                         <path strokeLinecap="round" strokeLinejoin="round" d="M2.25 6.75c0 8.284 6.716 15 15 15h2.25a2.25 2.25 0 002.25-2.25v-1.372c0-.516-.351-.966-.852-1.091l-4.423-1.106c-.44-.11-.902.055-1.173.417l-.97 1.293c-.282.376-.769.542-1.21.38a12.035 12.035 0 01-7.143-7.143c-.162-.441.004-.928.38-1.21l1.293-.97c.363-.271.527-.734.417-1.173L6.963 3.102a1.125 1.125 0 00-1.091-.852H4.5A2.25 2.25 0 002.25 4.5v2.25z" />
                                     </svg>
                                 </span>
-                                <h2 className="mt-4 text-base font-medium text-gray-800 ">Phone</h2>
-                                <p className="mt-2 text-sm text-gray-500 ">Mon-Fri from 8am to 5pm.</p>
-                                <p className="mt-2 text-sm text-red-500 ">+1 (555) 000-0000</p>
-                            </div>
+                                <h2 className="mt-4 text-base font-medium text-gray-800">Phone</h2>
+                                <p className="mt-2 text-sm text-gray-500">Mon-Fri from 8am to 5pm.</p>
+                                <p className="mt-2 text-sm text-red-500">+1 (555) 000-0000</p>
+                            </motion.div>
                         </div>
-                        {/* form section */}
-                        <div className="p-4 py-6 rounded-lg bg-white md:p-8 mt-6">
+
+                        {/* Form Section */}
+                        <motion.div 
+                            className="p-4 py-6 rounded-lg bg-white md:p-8 mt-6"
+                            initial={{ opacity: 0, y: 50 }}
+                            whileInView={{ opacity: 1, y: 0 }}
+                            transition={{ duration: 0.6, delay: 1 }}
+                        >
                             <form ref={form} onSubmit={sendEmail}>
                                 <div className="-mx-2 md:items-center md:flex">
                                     <div className="flex-1 px-2">
-                                        <label className="block mb-2 text-sm text-black ">Full Name</label>
-                                        <input type="text" placeholder="John Doe" name='name' className="block w-full px-5 py-2.5 mt-2 text-black placeholder-gray-400 bg-white border border-gray-200 rounded-lg focus:border-red-400  focus:ring-red-400 focus:outline-none focus:ring focus:ring-opacity-40" />
+                                        <label className="block mb-2 text-sm text-black">Full Name</label>
+                                        <input type="text" placeholder="John Doe" name='name' className="block w-full px-5 py-2.5 mt-2 text-black placeholder-gray-400 bg-white border border-gray-200 rounded-lg focus:border-red-400 focus:ring-red-400 focus:outline-none focus:ring focus:ring-opacity-40" />
                                     </div>
 
                                     <div className="flex-1 px-2 mt-4 md:mt-0">
                                         <label className="block mb-2 text-sm text-gray-600">Phone Num</label>
-                                        <input type="tel" placeholder="+977 98123123123" name='number' className="block w-full px-5 py-2.5 mt-2 text-gray-700 placeholder-gray-400 bg-white border border-gray-200 rounded-lg  focus:border-red-400  focus:ring-red-400 focus:outline-none focus:ring focus:ring-opacity-40" />
+                                        <input type="tel" placeholder="+977 98123123123" name='number' className="block w-full px-5 py-2.5 mt-2 text-gray-700 placeholder-gray-400 bg-white border border-gray-200 rounded-lg focus:border-red-400 focus:ring-red-400 focus:outline-none focus:ring focus:ring-opacity-40" />
                                     </div>
                                 </div>
 
                                 <div className="mt-4">
-                                    <label className="block mb-2 text-sm text-gray-600 ">Email address</label>
-                                    <input type="email" placeholder="johndoe@example.com" name='email' className="block w-full px-5 py-2.5 mt-2 text-gray-700 placeholder-gray-400 bg-white border border-gray-200 rounded-lg  focus:border-red-400 focus:ring-red-400 focus:outline-none focus:ring focus:ring-opacity-40" />
+                                    <label className="block mb-2 text-sm text-gray-600">Email address</label>
+                                    <input type="email" placeholder="johndoe@example.com" name='email' className="block w-full px-5 py-2.5 mt-2 text-gray-700 placeholder-gray-400 bg-white border border-gray-200 rounded-lg focus:border-red-400 focus:ring-red-400 focus:outline-none focus:ring focus:ring-opacity-40" />
                                 </div>
 
                                 <div className="mt-4">
-                                    <label className="block mb-2 text-sm text-gray-600 ">Subject</label>
-                                    <input type="text" placeholder="About donating and collaborating" name='subject' className="block w-full px-5 py-2.5 mt-2 text-gray-700 placeholder-gray-400 bg-white border border-gray-200 rounded-lg  focus:border-red-400 focus:ring-red-400 focus:outline-none focus:ring focus:ring-opacity-40" />
+                                    <label className="block mb-2 text-sm text-gray-600">Subject</label>
+                                    <input type="text" placeholder="About donating and collaborating" name='subject' className="block w-full px-5 py-2.5 mt-2 text-gray-700 placeholder-gray-400 bg-white border border-gray-200 rounded-lg focus:border-red-400 focus:ring-red-400 focus:outline-none focus:ring focus:ring-opacity-40" />
                                 </div>
 
                                 <div className="w-full mt-4">
-                                    <label className="block mb-2 text-sm text-gray-600 ">Message</label>
-                                    <textarea  name='message' className="block w-full h-32 px-5 py-2.5 mt-2 text-gray-700 placeholder-gray-400 bg-white border border-gray-200 rounded-lg md:h-56  focus:border-red-400  focus:ring-red-400 focus:outline-none focus:ring focus:ring-opacity-40" placeholder="Message"></textarea>
+                                    <label className="block mb-2 text-sm text-gray-600">Message</label>
+                                    <textarea name='message' className="block w-full h-32 px-5 py-2.5 mt-2 text-gray-700 placeholder-gray-400 bg-white border border-gray-200 rounded-lg md:h-56 focus:border-red-400 focus:ring-red-400 focus:outline-none focus:ring focus:ring-opacity-40" placeholder="Message"></textarea>
                                 </div>
 
                                 <button className="w-full px-6 py-3 mt-4 text-sm font-medium tracking-wide text-white capitalize transition-colors duration-300 transform bg-red-500 rounded-lg hover:bg-red-400 focus:outline-none focus:ring focus:ring-red-300 focus:ring-opacity-50">
                                     Send message
                                 </button>
                             </form>
-                        </div>
-                    </div>
+                        </motion.div>
+                    </motion.div>
 
                     {/* Map Section */}
-                    <div className="overflow-hidden rounded-lg lg:col-span-2 h-96 lg:h-auto mt-12 w-full">
+                    <motion.div 
+                        className="overflow-hidden rounded-lg lg:col-span-2 h-96 lg:h-auto mt-12 w-full"
+                        initial={{ opacity: 0, y: 50 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.6, delay: 1.2 }}
+                    >
                         <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d882.9353699797939!2d85.36019741361537!3d27.72526716644506!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39eb1bdc110b73f5%3A0xff54e650e7004d91!2sP9G6%2B4C4%2C%20Kathmandu%2044600!5e0!3m2!1sen!2snp!4v1730727805941!5m2!1sen!2snp" width="100%" height="450" style={{ border: 0 }} allowFullScreen="" loading="lazy" referrerPolicy="no-referrer-when-downgrade"></iframe>
-                    </div>
+                    </motion.div>
                 </div>
-
             </section>
 
-
-            {/*<!-- Component: Outline accordion with icons --> */}
-            <section className="w-full divide-y divide-slate-200 rounded border border-slate-200 bg-white px-20 py-12 sm:px-8 md:px-12">
+            {/* More info about Us */}
+            <motion.section 
+                className="w-full divide-y divide-slate-200 rounded border border-slate-200 bg-white px-20 py-12 sm:px-8 md:px-12"
+                initial={{ opacity: 0, y: 50 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 1.4 }}
+            >
                 <div className='mb-6'>
                     <h1 className="mt-2 text-2xl font-semibold text-red-400 md:text-3xl text-center">More info about Us</h1>
                 </div>
@@ -327,9 +366,9 @@ function Contact() {
                         Of course! If you want to donate and help the organization you can go to the facebook page of our founder. But try not to spam messages and bother the personal life of her.
                     </p>
                 </details>
-            </section>
+            </motion.section>
         </>
     )
 }
 
-export default Contact
+export default Contact;

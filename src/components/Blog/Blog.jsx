@@ -1,9 +1,9 @@
 "use client"
 
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
 import { useRouter } from 'next/navigation';
 import Image from 'next/image';
-
+import { motion, AnimatePresence } from 'framer-motion';
 
 //import css
 import style from "./blog.module.css";
@@ -12,12 +12,10 @@ import style from "./blog.module.css";
 import { IoIosArrowBack } from "react-icons/io";
 import { IoIosArrowForward } from "react-icons/io";
 
-
 //data components
 import { blogData } from "./blogData";
 import { reviewData } from "./reviewData"
 import BlgoSecCom from "@/utils/BlogGallerySec/blgoSecCom"
-
 
 function Blog() {
     const blogPerPage = 3;
@@ -42,21 +40,65 @@ function Blog() {
         );
     }
 
+    // Ref for the blog section
+    const blogSectionRef = useRef(null);
+
+    // Function to handle pagination and scroll to the blog section
+    const handlePagination = (pageIndex) => {
+        setCurrentPage(pageIndex); // Update the current page
+        // Scroll to the blog section
+        if (blogSectionRef.current) {
+            blogSectionRef.current.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+    };
+
+    // Animation Variants
+    const containerVariants = {
+        hidden: { opacity: 0 },
+        visible: { opacity: 1, transition: { duration: 0.5 } }
+    };
+
+    const blogCardVariants = {
+        hidden: { opacity: 0, y: 20 },
+        visible: { opacity: 1, y: 0, transition: { duration: 0.5 } }
+    };
+
+    const reviewCardVariants = {
+        hidden: { opacity: 0 },
+        visible: { opacity: 1, transition: { duration: 0.5 } }
+    };
+
+    const paginationButtonVariants = {
+        hover: { scale: 1.1, transition: { duration: 0.2 } }
+    };
 
     return (
-        <>
+        <motion.div
+            initial="hidden"
+            animate="visible"
+            variants={containerVariants}
+        >
             {/* Gallery or Blogs section */}
             <BlgoSecCom />
 
             {/* Blogs With Pagination */}
-            <div className='blogs p-9 flex flex-col lg:flex-row xl:flex-row bg-white w-full'>
-                {/* left section for */}
-                <div className='left ml-1 lg:ml-5 xl:ml-12 lg:mr-2 xl:mr-2 w-full lg:w-3/4 xl:w-3/4 flexflex-col items-center justify-center '>
-                    {blogData
-                        .slice(firstItem, lastItem)
-                        .map((item, index) => (
-                            <>
-                                <div className='blogCard flex items-center justify-center mt-7 flex-col lg:flex-row xl:flex-row' key={index}>
+            <div ref={blogSectionRef} className='blogs p-9 flex flex-col lg:flex-row xl:flex-row bg-white w-full'>
+                {/* left section for blogs */}
+                <div className='left ml-1 lg:ml-5 xl:ml-12 lg:mr-2 xl:mr-2 w-full lg:w-3/4 xl:w-3/4 flex flex-col items-center justify-center'>
+                    <AnimatePresence mode='wait'>
+                        {blogData
+                            .slice(firstItem, lastItem)
+                            .map((item, index) => (
+                                <motion.div
+                                    className='blogCard flex items-center justify-center mt-7 flex-col lg:flex-row xl:flex-row'
+                                    key={item.title} // Use a unique key for each blog card
+                                    variants={blogCardVariants}
+                                    initial="hidden"
+                                    whileInView="visible" // Animate when in view
+                                    viewport={{ once: true, amount: 0.5 }} // Trigger animation only once and when 50% of the element is visible
+                                    exit="hidden" // Fade out when leaving
+                                    transition={{ delay: index * 0.2 }}
+                                >
                                     <div className='left_top mr-6 mb-3 float-right w-full lg:w-28 xl:w-36'>
                                         <h1 className={`${style.heading} font-bold text-lg text-red-400`}>{item.title}</h1>
                                         <p className='text-blue-300'>{item.label}</p>
@@ -78,56 +120,92 @@ function Blog() {
                                             <button className={`${style.seeMoreBtn} rounded-full text-red-400  px-6 hover:bg-red-400 hover:text-white`} onClick={() => redirectSinglePage(item)}> Read More</button>
                                         </div>
                                     </div>
-                                </div>
-                            </>
-                        ))}
-
-                    {/* Pagenation */}
-                    <div className='pagenation bg-white px-12 py-9'>
-                        <div className='page_btn flex justify-center items-center'>
-                            <button>
-                                <IoIosArrowBack className='mr-3' />
-                            </button>
-                            {pages.map((item, index) => (
-                                <>
-                                    <button className={`px-3 py-1 hover:bg-red-400 hover:text-white ${currentPage === item - 1 ? "bg-red-400 text-white" : ""}`} key={index} onClick={() => setCurrentPage(index)}>{item}</button>
-                                </>
+                                </motion.div>
                             ))}
-                            <button>
+                    </AnimatePresence>
+
+                    {/* Pagination */}
+                    <motion.div
+                        className='pagenation bg-white px-12 py-9'
+                        initial="hidden"
+                        whileInView="visible"
+                        viewport={{ once: true, amount: 0.5 }}
+                        variants={containerVariants}
+                    >
+                        <div className='page_btn flex justify-center items-center'>
+                            <motion.button
+                                whileHover="hover"
+                                variants={paginationButtonVariants}
+                                onClick={() => {
+                                    setCurrentPage((prev) => (prev > 0 ? prev - 1 : prev));
+                                    if (blogSectionRef.current) {
+                                        blogSectionRef.current.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                                    }
+                                }}
+                            >
+                                <IoIosArrowBack className='mr-3' />
+                            </motion.button>
+                            {pages.map((item, index) => (
+                                <motion.button
+                                    key={index}
+                                    className={`px-3 py-1 hover:bg-red-400 hover:text-white ${currentPage === index ? "bg-red-400 text-white" : ""}`}
+                                    onClick={() => handlePagination(index)}
+                                    whileHover="hover"
+                                    variants={paginationButtonVariants}
+                                >
+                                    {item}
+                                </motion.button>
+                            ))}
+                            <motion.button
+                                whileHover="hover"
+                                variants={paginationButtonVariants}
+                                onClick={() => {
+                                    setCurrentPage((prev) => (prev < numOfPage - 1 ? prev + 1 : prev));
+                                    if (blogSectionRef.current) {
+                                        blogSectionRef.current.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                                    }
+                                }}
+                            >
                                 <IoIosArrowForward className='ml-3' />
-                            </button>
+                            </motion.button>
                         </div>
-                    </div>
+                    </motion.div>
                 </div>
 
-                {/* right section for members perosnal experience */}
+                {/* right section for members' personal experience */}
                 <div className='memberReview bg-gray-200 mt-7 w-full lg:w-1/4 xl:w-1/4 h-fit'>
                     <div className='membRevContent flex flex-col justify-center items-center p-3'>
                         <h1 className={`${style.heading} font-bold text-lg text-red-400`}>Members Review</h1>
                         {reviewData.map((item, index) => (
-                            <>
-                                <div className='review_cont my-5 flex flex-col justify-center items-center' key={index}>
-                                    <Image
-                                        src={item.imgSrc}
-                                        width={200}
-                                        height={100}
-                                        className={`rounded-full ${style.reveiewImg}`}
-                                        alt='member'
-                                    />
-                                    <div className='content flex justify-center items-center flex-col leading-7 mt-3'>
-                                        <p className='text-red-400'>{item.stdName}</p>
-                                        <p className='italic'>{item.role}</p>
-                                        <p className='text-blue-400'>{item.eventName}</p>
-                                        <p className='leading-6 mx-2 text-gray-600 text-justify'>{item.review}</p>
-                                    </div>
+                            <motion.div
+                                className='review_cont my-5 flex flex-col justify-center items-center'
+                                key={index}
+                                variants={reviewCardVariants}
+                                initial="hidden"
+                                whileInView="visible" // Animate when in view
+                                viewport={{ once: true, amount: 0.5 }} // Trigger animation only once and when 50% of the element is visible
+                                transition={{ delay: index * 0.2 }}
+                            >
+                                <Image
+                                    src={item.imgSrc}
+                                    width={200}
+                                    height={100}
+                                    className={`rounded-full ${style.reveiewImg}`}
+                                    alt='member'
+                                />
+                                <div className='content flex justify-center items-center flex-col leading-7 mt-3'>
+                                    <p className='text-red-400'>{item.stdName}</p>
+                                    <p className='italic'>{item.role}</p>
+                                    <p className='text-blue-400'>{item.eventName}</p>
+                                    <p className='leading-6 mx-2 text-gray-600 text-justify'>{item.review}</p>
                                 </div>
                                 <p className={`${style.line} w-full bg-gray-400`}></p>
-                            </>
+                            </motion.div>
                         ))}
                     </div>
                 </div>
             </div>
-        </>
+        </motion.div>
     )
 }
 
