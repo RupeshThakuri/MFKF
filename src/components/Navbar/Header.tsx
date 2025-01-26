@@ -64,7 +64,7 @@ function Header() {
         component="header"
       >
         <Container maxWidth={false} disableGutters>
-          <div className={`items-center flex flex-row justify-between px-12 ${scroll ? "text-black" : "text-white"}`}>
+          <div className={`items-center flex flex-row justify-between px-4 md:px-8 lg:px-12 xl:px-16  ${scroll ? "text-black" : "text-white"}`}>
             <div className="nav-item hidden sm:hidden md:hidden lg:flex xl:flex">
               <Box className={`text-left p-3 ${scroll ? "text-black" : "text-white"}`}>
                 {menuItems && menuItems.map((item, i) => (
