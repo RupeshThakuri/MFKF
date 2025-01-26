@@ -70,6 +70,7 @@ const SideBar = ({ openSideBar, setOpen }) => {
                       activeClass={style.active}
                       href={item.path}
                       className={`mx-2 ${style.navItems}`}
+                      onClick={() => setOpen(false)}
                     >
                       <ButtonBase className='gap-x-2'>
                         {item.icons}
