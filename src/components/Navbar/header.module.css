@@ -1,32 +1,31 @@
 /* navbar */
 .navbar {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    padding: 5px 26px;
-    z-index: "999";
-    background-color: transparent;
-    color: black;
-    font-size: 16px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding: 5px 26px;
+  z-index: "999";
+  background-color: transparent;
+  color: black;
+  font-size: 16px;
 }
 
 /* button of navbar */
 .bar {
-    border-radius: 2px;
-    color: black;
-    padding: 3px 6px;
+  border-radius: 2px;
+  color: black;
+  padding: 3px 6px;
 }
 
 /* org name in logo */
-.org_name{
-    font-family: 'Mansalva', cursive !important;
+.org_name {
+  font-family: "Mansalva", cursive !important;
 }
 
-
 /* button */
-.donate_btn{
-    color: white !important;
+.donate_btn {
+  color: white !important;
 }
 
 /* bars or burger menu */
@@ -34,25 +33,30 @@
 .ripple1,
 .ripple2,
 .ripple3 {
-    width: 70%;
-    height: 3px;
+  width: 70%;
+  height: 3px;
 }
 
 .bar_cont:hover .ripple1,
 .bar_cont:hover .ripple2,
 .bar_cont:hover .ripple3 {
-    width: 100%;
-    transition: 0.3s ease-in;
+  width: 100%;
+  transition: 0.3s ease-in;
 }
 
 .ripple1 {
-    align-self: flex-end;
+  align-self: flex-end;
 }
 
 .ripple2 {
-    width: 100%;
+  width: 100%;
 }
 
 .ripple3 {
-    align-self: flex-start;
+  align-self: flex-start;
+}
+
+/* Add a specific class for active nav items to ensure it's applied consistently */
+.active-nav-item {
+  color: #ef4444 !important; /* text-red-500 equivalent */
 }
