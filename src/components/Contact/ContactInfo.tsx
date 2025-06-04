@@ -1,9 +1,10 @@
+"use client"
+
 import React from 'react';
 import { motion } from 'framer-motion';
 import { PhoneCall, Mail, MapPin } from 'lucide-react';
 
 const ContactInfo: React.FC = () => {
-  // Animation variants
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: {

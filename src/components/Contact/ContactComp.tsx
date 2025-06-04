@@ -5,7 +5,7 @@ import ContactHeader from './ContactHeader';
 import ContactInfo from './ContactInfo';
 import ContactForm from './ContactForm';
 
-const Contact: React.FC = () => {
+const ContactComp: React.FC = () => {
   return (
     <>
       <ToastContainer />
@@ -20,4 +20,4 @@ const Contact: React.FC = () => {
   );
 };
 
-export default Contact;
+export default ContactComp;

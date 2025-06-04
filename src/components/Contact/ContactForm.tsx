@@ -1,3 +1,5 @@
+"use client"
+
 import React, { useRef } from 'react';
 import { motion } from 'framer-motion';
 import emailjs from '@emailjs/browser';
@@ -69,7 +71,7 @@ const ContactForm: React.FC = () => {
       <div className="relative">
         <div className="absolute top-0 w-full h-1.5 bg-gradient-to-r from-teal-500 via-blue-500 to-teal-500" />
         <div className="px-6 py-12 sm:p-12">
-          <h3 className="text-2xl font-semibold text-center text-gray-900 sm:text-3xl">
+          <h3 className="text-2xl font-semibold text-center text-red-400 sm:text-3xl">
             Send us a message
           </h3>
           <p className="mt-3 text-center text-gray-600">
