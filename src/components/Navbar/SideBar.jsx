@@ -2,21 +2,17 @@
 import style from "./sidebar.module.css"
 import Image from "next/image"
 import Link from "next/link"
-import { Button } from "@mui/material"
+import { Button,Box, ButtonBase } from "@mui/material"
 import { motion, AnimatePresence } from "framer-motion"
 import { usePathname } from "next/navigation"
 
 //icons
-import { IoMdClose } from "react-icons/io"
+import { IoMdClose,IoIosMail } from "react-icons/io"
 import { IoNavigate } from "react-icons/io5"
 import { FaPhoneAlt } from "react-icons/fa"
-import { IoIosMail } from "react-icons/io"
 
 //import navItems
 import { menuItems } from "./menuData"
-
-//extra import
-import { Box, ButtonBase } from "@mui/material"
 
 const SideBar = ({ openSideBar, setOpen }) => {
   const sidebarVariants = {
