@@ -112,7 +112,7 @@ const SideBar = ({ openSideBar, setOpen }) => {
               </ul>
             </div>
             <div className="contact_btn mt-6 px-3">
-              <Button className="bg-red-400 text-black hover:bg-red-500">Contact Us</Button>
+              <Button className="bg-red-400  hover:bg-red-500 text-white">Contact Us</Button>
             </div>
           </motion.div>
         </motion.div>
